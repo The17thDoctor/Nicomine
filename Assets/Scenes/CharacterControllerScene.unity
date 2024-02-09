@@ -545,6 +545,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1763926276 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4635196547529754515, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
+  m_PrefabInstance: {fileID: 1897887813}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c039d02e653dbb746abea71ba5c14eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1897887813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -576,6 +587,14 @@ PrefabInstance:
     - target: {fileID: 2456211609618663089, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
       propertyPath: m_Name
       value: LeanJoysticker circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564451896302147317, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564451896302147317, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3793404548887372403, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
       propertyPath: m_Color.b
@@ -684,6 +703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1981604688}
   - component: {fileID: 1981604687}
+  - component: {fileID: 1981604691}
   - component: {fileID: 1981604690}
   - component: {fileID: 1981604689}
   m_Layer: 0
@@ -808,9 +828,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.02
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -822,6 +842,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1981604691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981604686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdaa5b9ae05dd7b49b8db572c7891297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leanJoystick: {fileID: 1763926276}
+  acceleration: 2000
+  maxSpeed: 0.6
 --- !u!1 &2119223785
 GameObject:
   m_ObjectHideFlags: 0
