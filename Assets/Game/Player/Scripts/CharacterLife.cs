@@ -6,12 +6,14 @@ using UnityEngine.UIElements;
 
 public class CharacterLife : MonoBehaviour
 {
-    private int lifePoints;
+    public int lifePoints = 5;
+
+    private CharacterSpriteManager characterSpriteManager = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        characterSpriteManager = GetComponent<CharacterSpriteManager>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,9 @@ public class CharacterLife : MonoBehaviour
 
         if(lifePoints == 0)
         {
+            if(characterSpriteManager != null)
+                characterSpriteManager.playDeathAnimation();
+
             // TODO lose screen
         }
     }
