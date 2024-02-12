@@ -144,3 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Breakable: 1
+  BlockSprite: {fileID: 21300000, guid: d9cbae754f5b0884eb0d3020c0621158, type: 3}
+  HiddenSprite: {fileID: 21300000, guid: cd14bf7c5076751499ddd1b4086d844a, type: 3}

@@ -336,12 +336,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Container: {fileID: 322439097}
+  Dirt: {fileID: 2487941329581129525, guid: 6dd189f4284ec2b4d9b5ffa08e8ddedd, type: 3}
+  Grass: {fileID: 2487941329581129525, guid: 3d38c0ba03443774d86600ec46609abe, type: 3}
   Stone: {fileID: 2487941329581129525, guid: 7336b9e42f17e6f4ab9df1c7da1eb3a7, type: 3}
   Bedrock: {fileID: 2487941329581129525, guid: c8878db66d27d2a4cb9270ed1fd66688, type: 3}
   CorkOre: {fileID: 2487941329581129525, guid: 07c0e519b0584204f92264925c2367d5, type: 3}
   AntidoteOre: {fileID: 2487941329581129525, guid: e2bf62056be05b548a482f229f9265d7, type: 3}
   HorizontalSize: 100
   VerticalSize: 30
+  CorkAmount: 20
+  AntidoteAmount: 150
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
