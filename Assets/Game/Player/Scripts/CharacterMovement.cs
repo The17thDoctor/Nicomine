@@ -12,12 +12,15 @@ public class CharacterMovement : MonoBehaviour
 
     private new Rigidbody2D rigidbody2D = null;
 
+    private CharacterSpriteManager characterSpriteManager = null;
+
     private Vector3 movement;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        characterSpriteManager = GetComponent<CharacterSpriteManager>();
     }
 
     // Update is called once per frame
@@ -27,6 +30,11 @@ public class CharacterMovement : MonoBehaviour
         {
             // Le vecteur n'est pas normaliser pour que l'utilisateur puisse choisir la vitesse avec le joystick.
             movement = new Vector3(leanJoystick.ScaledValue.x, leanJoystick.ScaledValue.y, 0);
+
+            // Si le joystick est centré, on ne change pas la direction du personnage.
+            if(leanJoystick.ScaledValue.x != 0)
+                // Joystick.X < 0 Si le joystick est vers la gauche
+                characterSpriteManager.ChooseFacingDirection(leanJoystick.ScaledValue.x < 0);
         }
     }
 
