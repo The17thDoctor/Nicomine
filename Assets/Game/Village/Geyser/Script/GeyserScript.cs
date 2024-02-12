@@ -5,10 +5,11 @@ using UnityEngine;
 public class GeyserScript : MonoBehaviour
 {
     public int geyserNumber = 0;
-    public GameObject[] allGeyser;
+    public SpriteRenderer[] allGeyserSprite;
     private bool[] allGeyserBool;
     public Sprite spriteOpen;
     public Sprite spriteClose;
+    public int timePeriod = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,7 @@ public class GeyserScript : MonoBehaviour
 
     public void ChangeGeyserState(int time)
     {
-        if (time%60==0)
+        if (time%timePeriod==0)
         {
             OpenGeyser();
         }
@@ -59,9 +60,7 @@ public class GeyserScript : MonoBehaviour
             if (!elementRandom)
             {
                 allGeyserBool[indexRandom] = true;
-                SpriteRenderer sprite = allGeyser[indexRandom].GetComponent<SpriteRenderer>();
-                sprite.sprite = spriteOpen;
-                Debug.Log(allGeyserBool);
+                allGeyserSprite[indexRandom].sprite = spriteOpen;
                 return;
             }
         }
