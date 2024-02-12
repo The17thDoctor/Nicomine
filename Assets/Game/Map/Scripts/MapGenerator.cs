@@ -7,13 +7,15 @@ public class MapGenerator : MonoBehaviour
 
     public GameObject Container;
 
+    public GameObject Dirt;
+    public GameObject Grass;
     public GameObject Stone;
     public GameObject Bedrock;
     public GameObject CorkOre;
     public GameObject AntidoteOre;
 
     public int HorizontalSize = 100;
-    public int VerticalSize = 30;
+    public int VerticalSize = 35;
 
     public int CorkAmount = 20;
     public int AntidoteAmount = 150;
@@ -25,6 +27,7 @@ public class MapGenerator : MonoBehaviour
     {
         BlockList = new GameObject[HorizontalSize, VerticalSize];
         GenerateStone();
+        GenerateDirt();
         GenerateOres();
         GenerateBedrock();
     }
@@ -46,19 +49,33 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    private void GenerateDirt()
+    {
+        for (int x = 0; x < HorizontalSize; x++)
+        {
+            SetBlock(x, 0, Instantiate(Grass));
+            SetBlock(x, 1, Instantiate(Dirt));
+
+            if (Random.Range(0, 10) >= 6)
+            {
+                SetBlock(x, 2, Instantiate(Dirt));
+            }
+        }
+    }
+
     private void GenerateOres()
     {
         for (int i = 0; i < AntidoteAmount; i++)
         {
-            int x = Random.Range(0, HorizontalSize - 1);
-            int y = Random.Range(3, VerticalSize - 1);
+            int x = Random.Range(2, HorizontalSize - 3);
+            int y = Random.Range(6, VerticalSize - 1);
             SetBlock(x, y, Instantiate(AntidoteOre));
         }
 
         for (int i = 0; i < CorkAmount; i++)
         {
-            int x = Random.Range(0, HorizontalSize - 1);
-            int y = Random.Range(7, VerticalSize - 4);
+            int x = Random.Range(2, HorizontalSize - 3);
+            int y = Random.Range(10, VerticalSize - 4);
             SetBlock(x, y, Instantiate(CorkOre));
         }
     }
@@ -78,6 +95,22 @@ public class MapGenerator : MonoBehaviour
                 {
                     SetBlock(x, VerticalSize - 3, Instantiate(Bedrock));
                 }
+            }
+        }
+
+        for (int y = 0; y < VerticalSize; y++)
+        {
+            SetBlock(0, y, Instantiate(Bedrock));
+            SetBlock(HorizontalSize - 1, y, Instantiate(Bedrock));
+
+            if (Random.Range(0, 10) >= 5)
+            {
+                SetBlock(1, y, Instantiate(Bedrock));
+            }
+
+            if (Random.Range(0, 10) >= 5)
+            {
+                SetBlock(HorizontalSize - 2, y, Instantiate(Bedrock));
             }
         }
     }
