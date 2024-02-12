@@ -6,9 +6,15 @@ public class CharacterSpriteManager : MonoBehaviour
 {
     public float turnSpeed = 5f;
 
+    public float deathAnimationSpeed = 1f;
+
     private SpriteRenderer spriteRenderer = null;
 
     private Quaternion m_Rotation = Quaternion.Euler(0, 0, 0);
+
+    private Quaternion m_DeadRotation = Quaternion.Euler(-35, 0, 90);
+
+    public bool isPlayerDead = false; 
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +25,12 @@ public class CharacterSpriteManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isPlayerDead)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, m_DeadRotation * m_Rotation, Time.deltaTime * deathAnimationSpeed);
+            return;
+        }
+
         transform.rotation = Quaternion.Slerp(transform.rotation, m_Rotation, Time.deltaTime * turnSpeed);
     }
 
@@ -34,5 +46,10 @@ public class CharacterSpriteManager : MonoBehaviour
                 m_Rotation = Quaternion.Euler(0, 0, 0);
             }
         }
+    }
+
+    public void playDeathAnimation()
+    {
+        isPlayerDead = true;
     }
 }

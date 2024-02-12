@@ -705,6 +705,7 @@ GameObject:
   - component: {fileID: 1981604687}
   - component: {fileID: 1981604692}
   - component: {fileID: 1981604691}
+  - component: {fileID: 1981604694}
   - component: {fileID: 1981604690}
   - component: {fileID: 1981604693}
   m_Layer: 0
@@ -835,6 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ecafb42655f0546a62720b7c5bbad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifePoints: 5
 --- !u!61 &1981604693
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -880,6 +882,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1981604694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981604686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e44889378036f347962ffd7e5cfac0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 5
+  deathAnimationSpeed: 1
 --- !u!1 &2119223785
 GameObject:
   m_ObjectHideFlags: 0
