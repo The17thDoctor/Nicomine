@@ -52,7 +52,6 @@ public class MapGenerator : MonoBehaviour
         {
             int x = Random.Range(0, HorizontalSize - 1);
             int y = Random.Range(3, VerticalSize - 1);
-
             SetBlock(x, y, Instantiate(AntidoteOre));
         }
 
@@ -60,7 +59,6 @@ public class MapGenerator : MonoBehaviour
         {
             int x = Random.Range(0, HorizontalSize - 1);
             int y = Random.Range(7, VerticalSize - 4);
-
             SetBlock(x, y, Instantiate(CorkOre));
         }
     }

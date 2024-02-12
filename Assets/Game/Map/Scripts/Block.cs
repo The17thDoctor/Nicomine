@@ -2,18 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BlockType
-{
-    STONE = 0,
-    BEDROCK = 1,
-    CORK_ORE = 2,
-    ANTIDOTE_ORE = 3
-}
-
 public class Block : MonoBehaviour
 {
 
     public bool Breakable;
+
+    private bool _hidden = true;
+
+    [field:SerializeField]
+    public bool Hidden
+    {
+        get => _hidden;
+        set
+        {
+            _hidden = value;
+            GetComponent<SpriteRenderer>().sprite = value ? HiddenSprite : BlockSprite;
+        }
+    }
+
+    public Sprite BlockSprite;
+    public Sprite HiddenSprite;
 
     // Start is called before the first frame update
     private void Start()
@@ -25,10 +33,5 @@ public class Block : MonoBehaviour
     private void Update()
     {
         
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
     }
 }
