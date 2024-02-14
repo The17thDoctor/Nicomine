@@ -20,7 +20,6 @@ public class MapGenerator : MonoBehaviour
 
     private GameObject[,] BlockList; 
 
-    // Start is called before the first frame update
     private void Start()
     {
         BlockList = new GameObject[HorizontalSize, VerticalSize];
@@ -30,7 +29,6 @@ public class MapGenerator : MonoBehaviour
         GenerateBedrock();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         

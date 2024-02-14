@@ -11,16 +11,14 @@ public class Block : MonoBehaviour
     public Sprite BlockSprite;
     public Sprite HiddenSprite;
 
-    // Start is called before the first frame update
     private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = _hidden ? HiddenSprite : BlockSprite;
     }
 
-    // Update is called once per frame
-    private void Update()
+    public virtual void OnBlockBreak()
     {
-        
+        Debug.Log("KACER LE BLOKKKKKKKKKKKKKKKKK");
     }
 
     public void Reveal()
