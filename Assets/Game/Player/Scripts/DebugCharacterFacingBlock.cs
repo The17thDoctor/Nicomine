@@ -56,7 +56,7 @@ public class DebugCharacterFacingBlock : MonoBehaviour
 
 
         if(Debug_CharacterFacingBlock != null)
-            Debug_CharacterFacingBlock.transform.position = new Vector3(targetX, targetY, 0);
+            Debug_CharacterFacingBlock.transform.position = new Vector3(targetX, targetY, -1);
 
         if (Debug_CharacterPos != null)
             Debug_CharacterPos.transform.position = new Vector3(posX, posY, -2);

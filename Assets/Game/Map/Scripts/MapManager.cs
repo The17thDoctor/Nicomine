@@ -110,8 +110,11 @@ public class MapGenerator : MonoBehaviour
 
     public void MineBlock(int x, int y)
     {
-        x -= (int)Container.transform.position.x + HorizontalSize / 2;
-        y -= (int)Container.transform.position.y + VerticalSize / 2;
+        x -= (int)Container.transform.position.x - HorizontalSize / 2;
+        y -= (int)Container.transform.position.y;
+        y = -y;
+
+        Debug.Log($"Les coords {x}, {y}");
 
 
         if (x <= 0 || y <= 0 || x > HorizontalSize || y > VerticalSize) return;
@@ -146,6 +149,8 @@ public class MapGenerator : MonoBehaviour
         {
             Destroy(BlockList[x, y]);
         }
+
+        block.name = $"Block[{x},{y}]";
 
         BlockList[x, y] = block;
         block.transform.SetParent(Container.transform, false);
