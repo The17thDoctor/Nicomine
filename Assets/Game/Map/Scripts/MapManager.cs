@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -27,11 +29,6 @@ public class MapGenerator : MonoBehaviour
         GenerateDirt();
         GenerateOres();
         GenerateBedrock();
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void GenerateStone()
@@ -107,6 +104,34 @@ public class MapGenerator : MonoBehaviour
             if (Random.Range(0, 10) >= 5)
             {
                 SetBlock(HorizontalSize - 2, y, Instantiate(Bedrock));
+            }
+        }
+    }
+
+    public void MineBlock(int x, int y)
+    {
+        if (x <= 0 || y <= 0 || x > HorizontalSize || y > VerticalSize) return;
+
+        GameObject blockObject = BlockList[x, y];
+        if (blockObject == null) return;
+
+        Block block = blockObject.GetComponent<Block>();
+
+        Tuple<int, int>[] adjacents = {
+            new(1, 0),
+            new(-1, 0),
+            new(0, 1),
+            new(0, -1)
+        };
+        
+        // If block has been mined.
+        if (block.Mine())
+        {
+            foreach (Tuple<int, int> adjacent in adjacents)
+            {
+                GameObject adjacentObject = BlockList[x + adjacent.Item1, y + adjacent.Item2];
+                if (adjacentObject == null) continue;
+                adjacentObject.GetComponent<Block>().Reveal();
             }
         }
     }
