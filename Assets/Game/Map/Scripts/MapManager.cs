@@ -110,6 +110,10 @@ public class MapGenerator : MonoBehaviour
 
     public void MineBlock(int x, int y)
     {
+        x -= (int)Container.transform.position.x + HorizontalSize / 2;
+        y -= (int)Container.transform.position.y + VerticalSize / 2;
+
+
         if (x <= 0 || y <= 0 || x > HorizontalSize || y > VerticalSize) return;
 
         GameObject blockObject = BlockList[x, y];
