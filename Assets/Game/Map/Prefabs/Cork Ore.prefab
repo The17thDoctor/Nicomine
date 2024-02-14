@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3277891630354702367}
   - component: {fileID: 4797974842545558120}
   - component: {fileID: 1532214420271090186}
+  - component: {fileID: 6655692217299169619}
   m_Layer: 0
   m_Name: Cork Ore
   m_TagString: Untagged
@@ -144,5 +145,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Breakable: 1
+  Health: 3
   BlockSprite: {fileID: 21300000, guid: d9cbae754f5b0884eb0d3020c0621158, type: 3}
   HiddenSprite: {fileID: 21300000, guid: cd14bf7c5076751499ddd1b4086d844a, type: 3}
+--- !u!114 &6655692217299169619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487941329581129525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c848ae81ad299d946889c37c478f22a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Breakable: 0
+  Health: 3
+  BlockSprite: {fileID: 21300000, guid: d9cbae754f5b0884eb0d3020c0621158, type: 3}
+  HiddenSprite: {fileID: 21300000, guid: cd14bf7c5076751499ddd1b4086d844a, type: 3}
+  Item: CORK
