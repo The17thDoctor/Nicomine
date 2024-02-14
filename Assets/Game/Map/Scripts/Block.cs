@@ -8,19 +8,32 @@ public class Block : MonoBehaviour
     private bool _hidden = true;
     public bool Hidden { get => _hidden; }
 
+    public int Health = 3;
+
     public Sprite BlockSprite;
     public Sprite HiddenSprite;
 
-    // Start is called before the first frame update
     private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = _hidden ? HiddenSprite : BlockSprite;
     }
 
-    // Update is called once per frame
-    private void Update()
+    public virtual void OnBlockBreak()
     {
-        
+        Debug.Log("KACER LE BLOKKKKKKKKKKKKKKKKK");
+    }
+
+    public bool Mine()
+    {
+        Health -= 1;
+        if (Health <= 0)
+        {
+            OnBlockBreak();
+            Destroy(gameObject);
+            return true;
+        }
+
+        return false;
     }
 
     public void Reveal()
