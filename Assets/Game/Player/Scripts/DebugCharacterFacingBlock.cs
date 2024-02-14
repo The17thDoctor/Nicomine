@@ -29,7 +29,7 @@ public class DebugCharacterFacingBlock : MonoBehaviour
             joystickFacingDirection = characterMovement.GetJoystickFacingDirection();
         }
 
-        int targetX = Mathf.FloorToInt(posX);
+        int targetX = Mathf.RoundToInt(posX);
         int targetY = Mathf.RoundToInt(posY);
 
         switch (joystickFacingDirection)
