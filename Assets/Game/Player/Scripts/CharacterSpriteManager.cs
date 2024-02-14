@@ -8,6 +8,10 @@ public class CharacterSpriteManager : MonoBehaviour
 
     public float deathAnimationSpeed = 2f;
 
+    public Sprite spriteCharacter = null;
+    
+    public Sprite spriteMaskedCharacter = null;
+
     private SpriteRenderer spriteRenderer = null;
 
     private Quaternion m_Rotation = Quaternion.Euler(0, 0, 0);
@@ -32,6 +36,21 @@ public class CharacterSpriteManager : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, m_Rotation, Time.deltaTime * turnSpeed);
+
+        if(spriteRenderer != null)
+        {
+            float posY = transform.position.y;
+
+            if(posY >= 0)
+            {
+                if(spriteCharacter != null) 
+                    spriteRenderer.sprite = spriteCharacter;
+            }else
+            {
+                if(spriteMaskedCharacter != null)
+                    spriteRenderer.sprite = spriteMaskedCharacter;
+            }
+        }
     }
 
     public void ChooseFacingDirection(bool lookingLeft)
