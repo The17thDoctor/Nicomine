@@ -25,7 +25,7 @@ public class CharacterInteractions : MonoBehaviour
     {
         if(mapGenerator != null && characterMovement != null)
         {
-            Debug.Log("aze");
+            //Debug.Log("aze");
             float posX = transform.position.x;
             float posY = transform.position.y;
 
@@ -38,31 +38,28 @@ public class CharacterInteractions : MonoBehaviour
             }
 
             int targetX = Mathf.RoundToInt(posX);
-            int targetY = Mathf.RoundToInt(posY);
+            int targetY = Mathf.FloorToInt(posY);
 
             switch (joystickFacingDirection)
             {
                 case CharacterMovement.JoystickFacingDirection.Up:
-                    targetX = Mathf.RoundToInt(posX);
-                    targetY = Mathf.CeilToInt(posY) + 1;
+                    //targetX = Mathf.RoundToInt(posX);
+                    targetY++;
                     break;
                 case CharacterMovement.JoystickFacingDirection.Down:
-                    targetX = Mathf.RoundToInt(posX);
-                    targetY = Mathf.FloorToInt(posY) - 1;
+                    //targetX = Mathf.RoundToInt(posX);
+                    targetY--;
                     break;
                 case CharacterMovement.JoystickFacingDirection.Left:
-                    targetX += -1;
-                    break;
                 case CharacterMovement.JoystickFacingDirection.Right:
-                    targetX += 2;
-                    break;
                 case CharacterMovement.JoystickFacingDirection.None:
                     int targetDir = isPlayerFacingLeft ? -1 : 1;
                     targetX += targetDir;
                     break;
             }
 
-            Debug.Log("x: " + targetX + "  y: " + targetY);
+
+            //Debug.Log("x: " + targetX + "  y: " + targetY);
             mapGenerator.MineBlock(targetX, targetY);
         }
     }

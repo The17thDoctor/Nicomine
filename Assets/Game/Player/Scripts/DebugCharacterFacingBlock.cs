@@ -28,34 +28,29 @@ public class DebugCharacterFacingBlock : MonoBehaviour
             isPlayerFacingLeft = characterMovement.IsPlayerFacingLeft();
             joystickFacingDirection = characterMovement.GetJoystickFacingDirection();
         }
-
         int targetX = Mathf.RoundToInt(posX);
-        int targetY = Mathf.RoundToInt(posY);
+        int targetY = Mathf.FloorToInt(posY);
 
         switch (joystickFacingDirection)
         {
             case CharacterMovement.JoystickFacingDirection.Up:
-                targetX = Mathf.RoundToInt(posX);
-                targetY = Mathf.CeilToInt(posY) + 1;
+                //targetX = Mathf.RoundToInt(posX);
+                targetY++;
                 break;
             case CharacterMovement.JoystickFacingDirection.Down:
-                targetX = Mathf.RoundToInt(posX);
-                targetY = Mathf.FloorToInt(posY) - 1;
+                //targetX = Mathf.RoundToInt(posX);
+                targetY--;
                 break;
             case CharacterMovement.JoystickFacingDirection.Left:
-                targetX += -1;
-                break;
             case CharacterMovement.JoystickFacingDirection.Right:
-                targetX += 2;
-                break;
             case CharacterMovement.JoystickFacingDirection.None:
-                int targetDir = isPlayerFacingLeft ? -1 : 2;
-                targetX += targetDir;                
+                int targetDir = isPlayerFacingLeft ? -1 : 1;
+                targetX += targetDir;
                 break;
         }
 
 
-        if(Debug_CharacterFacingBlock != null)
+        if (Debug_CharacterFacingBlock != null)
             Debug_CharacterFacingBlock.transform.position = new Vector3(targetX, targetY, -1);
 
         if (Debug_CharacterPos != null)
