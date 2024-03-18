@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using System;
 
 public class AllGeyserScript : MonoBehaviour
 {
@@ -12,6 +8,7 @@ public class AllGeyserScript : MonoBehaviour
     public Sprite spriteClose;
     public Sprite spriteOpen;
     public Sprite spritePlug;
+    private int nbGeysers = 0;
     public int timePeriod = 10;
     void Start()
     {
@@ -65,6 +62,7 @@ public class AllGeyserScript : MonoBehaviour
             {
                 allGeyserState[indexRandom] = 1;
                 allGeyser[indexRandom].GetComponent<SpriteRenderer>().sprite = spriteOpen;
+                setOpenGeysers(getOpenGeysers()+1);
                 return;
             }
         }
@@ -76,9 +74,20 @@ public class AllGeyserScript : MonoBehaviour
         {
             if (child==allGeyser[increment])
             {
+                if(allGeyserState[increment] == 1){
+                    setOpenGeysers(getOpenGeysers() - 1);
+                }
                 allGeyserState[increment] = 2;
                 allGeyser[increment].GetComponent<SpriteRenderer>().sprite = spritePlug;
             }
         }
+    }
+    public int getOpenGeysers()
+    {
+        return nbGeysers;
+    }
+    public void setOpenGeysers(int geysers)
+    {
+        nbGeysers = geysers;
     }
 }
