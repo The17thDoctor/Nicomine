@@ -1,29 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+using System;
+using System.Timers;
 
 public class TimeScript : MonoBehaviour
 {
-    private float firstTime = 0;
-    private float lastTime = 0;
-    public GeyserScript geysers;
+    public AllGeyserScript geysers;
+    private int time = 0;
+    private float prevTime = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    public void FixedUpdate()
     {
-        firstTime = Time.time;
-        lastTime = firstTime;
+        float calculatedTime = prevTime + Time.fixedDeltaTime;
+        if (Mathf.Floor(calculatedTime) > Mathf.Floor(prevTime))
+        {
+            time++;
+            Debug.Log($"Time : {time}");
+            geysers.ChangeGeyserState(time);
+        }
+
+        prevTime = calculatedTime;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+
+    void OnDisable()
     {
-        if (Time.time-lastTime == 1)
-        {
-            Debug.Log(Time.time);
-            lastTime = Time.time;
-            geysers.ChangeGeyserState((int)lastTime);
-        }
+
     }
 }
