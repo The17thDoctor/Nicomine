@@ -8,6 +8,7 @@ using System.Timers;
 public class TimeScript : MonoBehaviour
 {
     public AllGeyserScript geysers;
+    public GameManager gameManager;
     private int time = 0;
     private float prevTime = 0;
 
@@ -17,8 +18,9 @@ public class TimeScript : MonoBehaviour
         if (Mathf.Floor(calculatedTime) > Mathf.Floor(prevTime))
         {
             time++;
-            Debug.Log($"Time : {time}");
+            //Debug.Log($"Time : {time}");
             geysers.ChangeGeyserState(time);
+            gameManager.ChangePeopleState(time);
         }
 
         prevTime = calculatedTime;
