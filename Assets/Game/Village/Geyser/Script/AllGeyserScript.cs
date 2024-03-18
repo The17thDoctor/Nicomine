@@ -12,7 +12,7 @@ public class AllGeyserScript : MonoBehaviour
     public Sprite spriteClose;
     public Sprite spriteOpen;
     public Sprite spritePlug;
-    public int timePeriod = 1;
+    public int timePeriod = 10;
     void Start()
     {
         SpriteRenderer[] allGeyserSprite = this.gameObject.GetComponentsInChildren<SpriteRenderer>();

@@ -525,6 +525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 644661859}
   - component: {fileID: 644661860}
+  - component: {fileID: 644661861}
   m_Layer: 0
   m_Name: Geyser (1)
   m_TagString: Untagged
@@ -599,6 +600,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &644661861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644661858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cade6df4d8de0f34db86564ae31be304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1640559741}
+  button: {fileID: 0}
 --- !u!1 &752345224
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 992197809}
   - component: {fileID: 992197810}
+  - component: {fileID: 992197811}
   m_Layer: 0
   m_Name: Geyser (2)
   m_TagString: Untagged
@@ -816,6 +832,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &992197811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992197808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cade6df4d8de0f34db86564ae31be304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1640559741}
+  button: {fileID: 0}
 --- !u!1 &1211177863
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,14 +999,14 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -993,7 +1023,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 96258678}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1016,6 +1047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648228677}
   - component: {fileID: 1648228676}
+  - component: {fileID: 1648228678}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: GameController
@@ -1050,6 +1082,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1648228678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648228675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d330f6500199c4448a89c883db800a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  geysers: {fileID: 1714379503}
 --- !u!1 &1714379501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,6 +1104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1714379502}
+  - component: {fileID: 1714379503}
   m_Layer: 0
   m_Name: Geysers
   m_TagString: Untagged
@@ -1085,6 +1131,22 @@ Transform:
   - {fileID: 1873545308}
   m_Father: {fileID: 611342412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1714379503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714379501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5256a4d5df4514cbb67689ba179ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteClose: {fileID: 21300000, guid: fa50f281f0e10824ca4ccf0e8c0dce88, type: 3}
+  spriteOpen: {fileID: 21300000, guid: ce7757b86515d79499df53d633ba7a7c, type: 3}
+  spritePlug: {fileID: 21300000, guid: 1c4352ae6ef03d948a13478108bee555, type: 3}
+  timePeriod: 10
 --- !u!114 &1763926276 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4635196547529754515, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
@@ -1106,6 +1168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1873545308}
   - component: {fileID: 1873545309}
+  - component: {fileID: 1873545310}
   m_Layer: 0
   m_Name: Geyser (3)
   m_TagString: Untagged
@@ -1180,13 +1243,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1873545310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873545307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cade6df4d8de0f34db86564ae31be304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1640559741}
+  button: {fileID: 0}
 --- !u!1001 &1897887813
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2119223789}
+    m_TransformParent: {fileID: 1315432344}
     m_Modifications:
     - target: {fileID: 78822895529466620, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
       propertyPath: m_Color.b
@@ -1382,6 +1459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1913146174}
   - component: {fileID: 1913146175}
+  - component: {fileID: 1913146176}
   m_Layer: 0
   m_Name: Geyser
   m_TagString: Untagged
@@ -1456,108 +1534,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2119223785
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2119223789}
-  - component: {fileID: 2119223788}
-  - component: {fileID: 2119223787}
-  - component: {fileID: 2119223786}
-  m_Layer: 5
-  m_Name: TemporaryCanvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2119223786
+--- !u!114 &1913146176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119223785}
+  m_GameObject: {fileID: 1913146173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Script: {fileID: 11500000, guid: cade6df4d8de0f34db86564ae31be304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &2119223787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119223785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &2119223788
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119223785}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!224 &2119223789
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119223785}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 96258678}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  player: {fileID: 1640559741}
+  button: {fileID: 0}
 --- !u!1 &2119410671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,11 +1637,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 752345227}
-  - {fileID: 2119223789}
-  - {fileID: 834107592}
   - {fileID: 619394802}
+  - {fileID: 752345227}
   - {fileID: 1648228677}
+  - {fileID: 834107592}
   - {fileID: 1901940034}
   - {fileID: 611342412}
   - {fileID: 322439098}
