@@ -11,8 +11,8 @@ public enum Items
 public class Inventory : MonoBehaviour
 {
 
-    public GameObject AntidoteTMP;
-    public GameObject CorkTMP;
+    public TMP_Text AntidoteTMP;
+    public TMP_Text CorkTMP;
 
     private Dictionary<Items, int> inventory = new()
     {
