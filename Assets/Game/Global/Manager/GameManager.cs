@@ -14,15 +14,21 @@ public class GameManager : MonoBehaviour
     public TMP_Text sainPeopleText;
     public TMP_Text sickPeopleText;
     public TMP_Text deadPeopleText;
-    public int startSickPeople = 100;
-    public int startHealthyPeople = 0;
+    public TMP_Text scoreText;
+    public int startSainPeople = 100;
+    public int startSickPeople = 0;
     public int startDeadPeople = 0;
     public AllGeyserScript geyserScript;
     public int timePeriod = 10;
 
     void Start()
     {
-        setStatePeople(80, 20, 0);
+        setStatePeople(startSainPeople, startSickPeople, startDeadPeople);
+    }
+
+    public void RefreshScoreText()
+    {
+        scoreText.text = $"Score : {_score.ToString()}";
     }
 
     public int GetScore()

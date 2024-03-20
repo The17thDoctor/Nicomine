@@ -1,34 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System;
-using System.Timers;
 
 public class TimeScript : MonoBehaviour
 {
     public AllGeyserScript geysers;
     public GameManager gameManager;
-    public int time = 0;
+    public TMP_Text Timer;
+    public int baseGameTime = 300;
+    public int gameTime = 0;
     private float prevTime = 0;
 
+    public void Start()
+    {
+        gameTime = baseGameTime;
+    }
     public void FixedUpdate()
     {
         float calculatedTime = prevTime + Time.fixedDeltaTime;
-        if (Mathf.Floor(calculatedTime) > Mathf.Floor(prevTime))
+        if (Mathf.Floor(calculatedTime) > Mathf.Floor(prevTime) && gameTime>0)
         {
-            time++;
-            //Debug.Log($"Time : {time}");
-            geysers.ChangeGeyserState(time);
-            gameManager.ChangePeopleState(time);
+            gameTime = gameTime - 1;
+            setTimeText(gameTime);
+            geysers.ChangeGeyserState(baseGameTime - gameTime);
+            gameManager.ChangePeopleState(baseGameTime - gameTime);
+            gameManager.RefreshScoreText();
         }
 
         prevTime = calculatedTime;
     }
 
-
-    void OnDisable()
-    {
-
+    private void setTimeText(int gameTime){
+        int seconds = gameTime % 60;
+        int minutes = gameTime / 60;
+        Timer.text = $"{minutes.ToString()}:{seconds.ToString()}";
     }
 }
