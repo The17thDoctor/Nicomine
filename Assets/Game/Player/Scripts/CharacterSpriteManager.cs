@@ -18,7 +18,9 @@ public class CharacterSpriteManager : MonoBehaviour
 
     private Quaternion m_DeadRotation = Quaternion.Euler(0, 0, 90);
 
-    public bool isPlayerDead = false; 
+    public bool isPlayerDead = false;
+
+    private bool isPlayerInVllage;
 
     // Start is called before the first frame update
     void Start()
@@ -43,12 +45,18 @@ public class CharacterSpriteManager : MonoBehaviour
 
             if(posY >= 0)
             {
-                if(spriteCharacter != null) 
+                if (spriteCharacter != null) {
                     spriteRenderer.sprite = spriteCharacter;
-            }else
+                    setIsPlayerInVillage(true);
+                }
+            }
+            else
             {
-                if(spriteMaskedCharacter != null)
+                if (spriteMaskedCharacter != null)
+                {
                     spriteRenderer.sprite = spriteMaskedCharacter;
+                    setIsPlayerInVillage(false);
+                }
             }
         }
     }
@@ -65,6 +73,15 @@ public class CharacterSpriteManager : MonoBehaviour
                 m_Rotation = Quaternion.Euler(0, 0, 0);
             }
         }
+    }
+
+    public void setIsPlayerInVillage(bool isInVillage)
+    {
+        isPlayerInVllage = isInVillage;
+    }
+    public bool getIsPlayerInVillage()
+    {
+        return isPlayerInVllage;
     }
 
     public void playDeathAnimation()

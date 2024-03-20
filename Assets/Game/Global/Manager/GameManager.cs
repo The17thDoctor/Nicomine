@@ -54,21 +54,21 @@ public class GameManager : MonoBehaviour
         _score = 0;
     }
 
-    void setStatePeople(int healthy, int sick, int dead)
+    public void setStatePeople(int healthy, int sick, int dead)
     {
         sainPeopleText.text = healthy.ToString();
         sickPeopleText.text = sick.ToString();
         deadPeopleText.text = dead.ToString();
     }
-    int getSainPeople()
+    public int getSainPeople()
     {
         return int.Parse(sainPeopleText.text);
     }
-    int getSickPeople()
+    public int getSickPeople()
     {
         return int.Parse(sickPeopleText.text);
     }
-    int getDeadPeople()
+    public int getDeadPeople()
     {
         return int.Parse(deadPeopleText.text);
     }
