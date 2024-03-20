@@ -49,8 +49,14 @@ public class Inventory : MonoBehaviour
 
     private void SetLabels()
     {
+        if (AntidoteTMP != null)
+        {
+            AntidoteTMP.text = inventory[Items.ANTIDOTE].ToString();
+        }
 
-        AntidoteTMP.text = inventory[Items.ANTIDOTE].ToString();
-        CorkTMP.text = inventory[Items.CORK].ToString();
+        if (CorkTMP != null)
+        {
+            CorkTMP.text = inventory[Items.CORK].ToString();
+        }
     }
 }
