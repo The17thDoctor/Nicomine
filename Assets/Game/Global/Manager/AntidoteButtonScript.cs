@@ -14,6 +14,7 @@ public class AntidoteButtonScript : MonoBehaviour
     {
         if (characterSprite.getIsPlayerInVillage() && gameManager.getSickPeople()>0)
         {
+            gameManager.AddToScore(ScoreValue.VILLAGER_HEALED);
             gameManager.setStatePeople(gameManager.getSainPeople() + 1, gameManager.getSickPeople() - 1, gameManager.getDeadPeople());
         }
     }
