@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c848ae81ad299d946889c37c478f22a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Breakable: 0
-  Health: 3
+  Breakable: 1
+  Health: 0.75
   BlockSprite: {fileID: 21300000, guid: 67db422d21073ba4ab2c1fed850625fe, type: 3}
   HiddenSprite: {fileID: 21300000, guid: c71dadd00411d5c4b9ada4b566e798f2, type: 3}
   Item: CORK

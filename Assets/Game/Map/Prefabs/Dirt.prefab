@@ -144,6 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Breakable: 1
-  Health: 3
+  Health: 0.75
   BlockSprite: {fileID: 21300000, guid: 3ba936aef4038ce42adcaf122b444a61, type: 3}
   HiddenSprite: {fileID: 21300000, guid: 3ba936aef4038ce42adcaf122b444a61, type: 3}
