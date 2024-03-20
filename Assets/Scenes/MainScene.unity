@@ -3192,9 +3192,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066310d326cea1e4f8ca9493e9a63bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPeopleText: {fileID: 0}
-  sickPeopleText: {fileID: 0}
-  deadPeopleText: {fileID: 0}
+  sainPeopleText: {fileID: 194649533}
+  sickPeopleText: {fileID: 558785891}
+  deadPeopleText: {fileID: 73055242}
+  startSickPeople: 100
+  startHealthyPeople: 0
+  startDeadPeople: 0
   geyserScript: {fileID: 1714379503}
   timePeriod: 10
 --- !u!4 &1648228677
@@ -3413,9 +3416,9 @@ MonoBehaviour:
   spriteOpen: {fileID: 21300000, guid: ce7757b86515d79499df53d633ba7a7c, type: 3}
   spritePlug: {fileID: 21300000, guid: 1c4352ae6ef03d948a13478108bee555, type: 3}
   timePeriod: 60
-  closeGeysersText: {fileID: 0}
-  openGeysersText: {fileID: 0}
-  plugGeysersText: {fileID: 0}
+  closeGeysersText: {fileID: 206480164}
+  openGeysersText: {fileID: 2096805799}
+  plugGeysersText: {fileID: 419502272}
 --- !u!114 &1763926276 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4635196547529754515, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
