@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using TMPro;
 public enum ScoreValue
 {
     VILLAGER_HEALED = 500,
@@ -11,9 +11,9 @@ public enum ScoreValue
 public class GameManager : MonoBehaviour
 {
     private int _score = 0;
-    //public TextMeshPro healthPeopleText;
-    //public TextMeshPro sickPeopleText;
-    //public TextMeshPro deadPeopleText;
+    public TMP_Text healthPeopleText;
+    public TMP_Text sickPeopleText;
+    public TMP_Text deadPeopleText;
     private int sickPeople = 0;
     private int healthyPeople = 0;
     private int deadPeople = 0;
@@ -82,14 +82,14 @@ public class GameManager : MonoBehaviour
 
     public void ChangePeopleState(int time)
     {
-        //if (time % timePeriod == 0)
-        //{
+        if (time % timePeriod == 0)
+        {
             ChangeSickPeople(time);
             if (time > 15)
             {
                 ChangeDeadPeople(time);
             }
-        //}
+        }
     }
     public void ChangeSickPeople(int time)
     {
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
             setHealthyPeople(getHealthyPeople() - newSickPeople);
             setSickPeople(getSickPeople() + newSickPeople);
         }
-        Debug.Log(getHealthyPeople());
+        //Debug.Log(getHealthyPeople());
     }
     void ChangeDeadPeople(int time)
     {
@@ -123,7 +123,6 @@ public class GameManager : MonoBehaviour
             settingDeadPeople = settingDeadPeople / 10;
             newDeadPeople++;
         }
-        Debug.Log(newDeadPeople);
         if (getSickPeople() - newDeadPeople < 0)
         {
             setDeadPeople(getDeadPeople() + getSickPeople());
@@ -134,7 +133,7 @@ public class GameManager : MonoBehaviour
             setSickPeople(getSickPeople() - newDeadPeople);
             setDeadPeople(getDeadPeople() + newDeadPeople);
         }
-        Debug.Log(getSickPeople());
-        Debug.Log(getDeadPeople());
+        //Debug.Log(getSickPeople());
+        //Debug.Log(getDeadPeople());
     }
 }

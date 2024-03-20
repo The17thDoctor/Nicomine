@@ -9,7 +9,7 @@ public class TimeScript : MonoBehaviour
 {
     public AllGeyserScript geysers;
     public GameManager gameManager;
-    private int time = 0;
+    public int time = 0;
     private float prevTime = 0;
 
     public void FixedUpdate()
