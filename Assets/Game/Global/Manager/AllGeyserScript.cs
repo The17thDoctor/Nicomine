@@ -7,7 +7,6 @@ public class AllGeyserScript : MonoBehaviour
     private GameObject[] allGeyser;
     private int[] allGeyserState;
     public Sprite spriteClose;
-    public Sprite spriteOpen;
     public Sprite spritePlug;
     private int nbGeysers = 0;
     public int timePeriod = 10;
@@ -89,8 +88,9 @@ public class AllGeyserScript : MonoBehaviour
             {
                 setGeysersText(getCloseText()-1, getOpenText()+1, getPlugText());
                 allGeyserState[indexRandom] = 1;
-                allGeyser[indexRandom].GetComponent<SpriteRenderer>().sprite = spriteOpen;
-                setOpenGeysers(getOpenGeysers()+1);
+                setOpenGeysers(getOpenGeysers() + 1);
+
+                allGeyser[indexRandom].transform.GetChild(0).gameObject.SetActive(true);
                 return;
             }
         }
@@ -113,6 +113,7 @@ public class AllGeyserScript : MonoBehaviour
                 gameManager.AddToScore(ScoreValue.GEYSER_PLUGGED);
                 allGeyserState[increment] = 2;
                 allGeyser[increment].GetComponent<SpriteRenderer>().sprite = spritePlug;
+                allGeyser[increment].transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
             }
         }
     }
