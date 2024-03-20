@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class MapGenerator : MonoBehaviour
 {
 
     public GameObject Container;
+    private GameObject background;
 
     public GameObject Dirt;
     public GameObject Grass;
@@ -13,6 +15,8 @@ public class MapGenerator : MonoBehaviour
     public GameObject Bedrock;
     public GameObject CorkOre;
     public GameObject AntidoteOre;
+
+    public int MineEntryX = 0;
 
     public int HorizontalSize = 100;
     public int VerticalSize = 35;
@@ -25,10 +29,21 @@ public class MapGenerator : MonoBehaviour
     private void Start()
     {
         BlockList = new GameObject[HorizontalSize, VerticalSize];
+        background = Container.transform.GetChild(0).gameObject;
+        background.transform.position = new Vector3(-0.5f, -VerticalSize / 2 + 0.5f, 3);
+
+
         GenerateStone();
         GenerateDirt();
         GenerateOres();
         GenerateBedrock();
+        BreakMineEntry();
+    }
+
+    private void BreakMineEntry()
+    {
+        Destroy(BlockList[MineEntryX, 0]);
+        Destroy(BlockList[MineEntryX + 1, 0]);
     }
 
     private void GenerateStone()
@@ -47,6 +62,8 @@ public class MapGenerator : MonoBehaviour
         for (int x = 0; x < HorizontalSize; x++)
         {
             SetBlock(x, 0, Instantiate(Grass));
+            BlockList[x, 0].GetComponent<Block>().Breakable = false;
+
             SetBlock(x, 1, Instantiate(Dirt));
 
             if (Random.Range(0, 10) >= 6)
