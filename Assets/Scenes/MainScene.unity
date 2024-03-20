@@ -2406,6 +2406,10 @@ PrefabInstance:
       propertyPath: mapGenerator
       value: 
       objectReference: {fileID: 1901940035}
+    - target: {fileID: 1873624488501113063, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
+      propertyPath: miningButton
+      value: 
+      objectReference: {fileID: 1275032838}
     - target: {fileID: 2642925303493177248, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2957,7 +2961,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1275032834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: ac0583a844a9ed245896e4a94fdcf5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -2991,19 +2995,9 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1275032836}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1640559745}
-        m_TargetAssemblyTypeName: CharacterInteractions, Assembly-CSharp
-        m_MethodName: onMiningButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 'onMiningButtonClicked '
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  isButtonPressed: 0
+  timePressed: 0
 --- !u!1 &1315432340
 GameObject:
   m_ObjectHideFlags: 0
@@ -3236,17 +3230,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3817455460573795406, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
   m_PrefabInstance: {fileID: 834107592}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1640559745 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1873624488501113063, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
-  m_PrefabInstance: {fileID: 834107592}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640559741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3125485e5b094ea4f88960b8991afa70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1648228675
 GameObject:
   m_ObjectHideFlags: 0

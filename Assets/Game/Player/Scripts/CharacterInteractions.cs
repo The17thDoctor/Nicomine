@@ -8,6 +8,7 @@ public class CharacterInteractions : MonoBehaviour
 
     private CharacterMovement characterMovement = null;
 
+    public MiningButton miningButton = null;
 
     // Start is called before the first frame update
     void Start()
@@ -15,10 +16,13 @@ public class CharacterInteractions : MonoBehaviour
         characterMovement = GetComponent<CharacterMovement>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if(miningButton != null && miningButton.isButtonPressed)
+        {
+            onMiningButtonClicked();
+            miningButton.timePressed += Time.fixedDeltaTime;
+        }
     }
 
     public void onMiningButtonClicked()
@@ -58,9 +62,22 @@ public class CharacterInteractions : MonoBehaviour
                     break;
             }
 
+            GameObject block = mapGenerator.GetBlock(targetX, targetY);
+            if (block == null)
+            {
+                miningButton.timePressed = 0.0f;
+                return;
+            }
 
-            //Debug.Log("x: " + targetX + "  y: " + targetY);
-            mapGenerator.MineBlock(targetX, targetY);
+            // TODO: si le block est un piège casser instanement
+
+            float health = block.GetComponent<Block>().Health;
+            if(miningButton.timePressed > health)
+            {
+                //Debug.Log("x: " + targetX + "  y: " + targetY);
+                mapGenerator.MineBlock(targetX, targetY);
+                miningButton.timePressed = 0.0f;
+            }
         }
     }
 }

@@ -131,7 +131,7 @@ public class MapGenerator : MonoBehaviour
         y -= (int)Container.transform.position.y;
         y = -y;
 
-        Debug.Log($"Les coords {x}, {y}");
+        //Debug.Log($"Les coords {x}, {y}");
 
 
         if (x <= 0 || y <= 0 || x > HorizontalSize || y > VerticalSize) return;
@@ -159,8 +159,18 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
+    public GameObject GetBlock(int x, int y)
+    {
+        x -= (int)Container.transform.position.x - HorizontalSize / 2;
+        y -= (int)Container.transform.position.y;
+        y = -y;
 
-    private void SetBlock(int x, int y, GameObject block)
+        if (x < 0 || y < 0 || x > HorizontalSize || y > VerticalSize) return null;
+
+        return BlockList[x, y];
+    }
+
+        private void SetBlock(int x, int y, GameObject block)
     {
         if (BlockList[x, y] != null)
         {

@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bba4e06110c3f343a82df61dbe41cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Breakable: 1
-  Health: 3
+  Breakable: 0
+  Health: 1337
   BlockSprite: {fileID: 21300000, guid: 46baaa8161afa214c8a983956470a7a0, type: 3}
   HiddenSprite: {fileID: 21300000, guid: 46baaa8161afa214c8a983956470a7a0, type: 3}

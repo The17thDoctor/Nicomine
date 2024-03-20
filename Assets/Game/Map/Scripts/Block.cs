@@ -8,7 +8,7 @@ public class Block : MonoBehaviour
     private bool _hidden = true;
     public bool Hidden { get => _hidden; }
 
-    public int Health = 3;
+    public float Health = 3.0f;
 
     public Sprite BlockSprite;
     public Sprite HiddenSprite;
@@ -20,20 +20,14 @@ public class Block : MonoBehaviour
 
     public virtual void OnBlockBreak()
     {
-        Debug.Log("KACER LE BLOKKKKKKKKKKKKKKKKK");
+        //Debug.Log("KACER LE BLOKKKKKKKKKKKKKKKKK");
     }
 
     public bool Mine()
     {
-        Health -= 1;
-        if (Health <= 0)
-        {
-            OnBlockBreak();
-            Destroy(gameObject);
-            return true;
-        }
-
-        return false;
+        OnBlockBreak();
+        Destroy(gameObject);
+        return true;    
     }
 
     public void Reveal()
