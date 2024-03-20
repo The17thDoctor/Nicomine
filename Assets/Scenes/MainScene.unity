@@ -2475,6 +2475,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
+--- !u!114 &834107593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 21894599958473059, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
+  m_PrefabInstance: {fileID: 834107592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640559741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e44889378036f347962ffd7e5cfac0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &884807357
 GameObject:
   m_ObjectHideFlags: 0
@@ -3115,6 +3126,7 @@ GameObject:
   - component: {fileID: 1338118531}
   - component: {fileID: 1338118530}
   - component: {fileID: 1338118532}
+  - component: {fileID: 1338118533}
   m_Layer: 5
   m_Name: Antidote
   m_TagString: Untagged
@@ -3225,6 +3237,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1338118533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338118528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a98587a1767b6040a3e250423c8fc1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSprite: {fileID: 834107593}
+  gameManager: {fileID: 1648228676}
 --- !u!1 &1640559741 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3817455460573795406, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
@@ -4251,7 +4277,7 @@ MonoBehaviour:
   AntidoteAmount: 150
   TrapAmount: 50
   CancerAmount: 20
-  DebugBlocks: 1
+  DebugBlocks: 0
 --- !u!1 &1913146173
 GameObject:
   m_ObjectHideFlags: 0
