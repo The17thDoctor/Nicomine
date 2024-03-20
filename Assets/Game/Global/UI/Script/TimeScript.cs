@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -32,6 +33,7 @@ public class TimeScript : MonoBehaviour
     private void setTimeText(int gameTime){
         int seconds = gameTime % 60;
         int minutes = gameTime / 60;
-        Timer.text = $"{minutes.ToString()}:{seconds.ToString()}";
+
+        Timer.text = $"{minutes}:{seconds:D2}";
     }
 }
