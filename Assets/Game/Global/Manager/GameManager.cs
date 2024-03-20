@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         if (time % timePeriod == 0)
         {
             ChangeSickPeople(time);
-            if (time > 15)
+            if (time > 150)
             {
                 ChangeDeadPeople(time);
             }
