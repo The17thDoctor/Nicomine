@@ -100,7 +100,7 @@ public class AllGeyserScript : MonoBehaviour
     {
         for(int increment = 0; increment<allGeyser.Length;increment++)
         {
-            if (child==allGeyser[increment])
+            if (child==allGeyser[increment] && allGeyserState[increment]!=2)
             {
                 if(allGeyserState[increment] == 1){
                     setGeysersText(getCloseText(), getOpenText() - 1, getPlugText() + 1);
