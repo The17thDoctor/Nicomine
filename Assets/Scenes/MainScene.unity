@@ -1118,7 +1118,7 @@ Transform:
   m_GameObject: {fileID: 322439097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4242,11 +4242,16 @@ MonoBehaviour:
   Bedrock: {fileID: 2487941329581129525, guid: c8878db66d27d2a4cb9270ed1fd66688, type: 3}
   CorkOre: {fileID: 2487941329581129525, guid: 07c0e519b0584204f92264925c2367d5, type: 3}
   AntidoteOre: {fileID: 2487941329581129525, guid: e2bf62056be05b548a482f229f9265d7, type: 3}
+  Trap: {fileID: 2487941329581129525, guid: 972d145025090eb4fb4dac1e8ada677f, type: 3}
+  Cancer: {fileID: 2487941329581129525, guid: 7361bdf80d7d2594082f9964e703e474, type: 3}
   MineEntryX: 58
   HorizontalSize: 100
   VerticalSize: 30
   CorkAmount: 20
   AntidoteAmount: 150
+  TrapAmount: 50
+  CancerAmount: 20
+  DebugBlocks: 1
 --- !u!1 &1913146173
 GameObject:
   m_ObjectHideFlags: 0

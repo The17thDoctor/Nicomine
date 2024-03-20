@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -15,6 +16,8 @@ public class MapGenerator : MonoBehaviour
     public GameObject Bedrock;
     public GameObject CorkOre;
     public GameObject AntidoteOre;
+    public GameObject Trap;
+    public GameObject Cancer;   
 
     public int MineEntryX = 0;
 
@@ -23,6 +26,10 @@ public class MapGenerator : MonoBehaviour
 
     public int CorkAmount = 20;
     public int AntidoteAmount = 150;
+    public int TrapAmount = 50;
+    public int CancerAmount = 20;
+
+    public bool DebugBlocks = false;
 
     private GameObject[,] BlockList; 
 
@@ -35,6 +42,7 @@ public class MapGenerator : MonoBehaviour
 
         GenerateStone();
         GenerateDirt();
+        GenerateCancer();
         GenerateOres();
         GenerateBedrock();
         BreakMineEntry();
@@ -78,15 +86,52 @@ public class MapGenerator : MonoBehaviour
         for (int i = 0; i < AntidoteAmount; i++)
         {
             int x = Random.Range(2, HorizontalSize - 3);
-            int y = Random.Range(6, VerticalSize - 1);
+            int y = Random.Range(4, VerticalSize - 1);
             SetBlock(x, y, Instantiate(AntidoteOre));
         }
 
         for (int i = 0; i < CorkAmount; i++)
         {
             int x = Random.Range(2, HorizontalSize - 3);
-            int y = Random.Range(10, VerticalSize - 4);
+            int y = Random.Range(8, VerticalSize - 4);
             SetBlock(x, y, Instantiate(CorkOre));
+        }
+    }
+
+    private List<bool[]> cancerBlockMaps = new()
+    {
+        new bool[] {false, true, true, true, true, true, true, true, false},
+        new bool[] {true, false, false, true, true, false, false, false, false },
+        new bool[] {true, true, false, true, true, false, false, false, false }
+    };
+
+    private void GenerateCancer()
+    {
+        for (int i = 0; i < TrapAmount; i++)
+        {
+            int x = Random.Range(2, HorizontalSize - 3);
+            int y = Random.Range(4, VerticalSize - 1);
+            SetBlock(x, y, Instantiate(Trap));
+        }
+
+        for (int i = 0; i < CancerAmount; i++)
+        {
+            int bx = Random.Range(2, HorizontalSize - 3);
+            int by = Random.Range(6, VerticalSize - 1);
+
+
+            bool[] map = cancerBlockMaps[Random.Range(0, cancerBlockMaps.Count - 1)];
+            for (int x = 0; x < 3; x++)
+            {
+                for (int y = 0; y < 3; y++)
+                {
+                    bool block = map[x + 3 * y];
+                    if (block)
+                    {
+                        SetBlock(bx + x, by + y, Instantiate(Cancer));
+                    }
+                }
+            }
         }
     }
 
@@ -131,9 +176,6 @@ public class MapGenerator : MonoBehaviour
         y -= (int)Container.transform.position.y;
         y = -y;
 
-        //Debug.Log($"Les coords {x}, {y}");
-
-
         if (x <= 0 || y <= 0 || x > HorizontalSize || y > VerticalSize) return;
 
         GameObject blockObject = BlockList[x, y];
@@ -170,8 +212,10 @@ public class MapGenerator : MonoBehaviour
         return BlockList[x, y];
     }
 
-        private void SetBlock(int x, int y, GameObject block)
+    private void SetBlock(int x, int y, GameObject block)
     {
+        if (x < 0 || x >= HorizontalSize || y < 0 || y >= VerticalSize) return;
+
         if (BlockList[x, y] != null)
         {
             Destroy(BlockList[x, y]);
@@ -181,6 +225,8 @@ public class MapGenerator : MonoBehaviour
 
         BlockList[x, y] = block;
         block.transform.SetParent(Container.transform, false);
-        block.transform.position = new Vector3((-HorizontalSize / 2) + x, -y, 0);
+        block.transform.position = new Vector3((-HorizontalSize / 2) + x, -y, -1);
+
+        if (DebugBlocks) block.GetComponent<Block>().Reveal();
     }
 }
