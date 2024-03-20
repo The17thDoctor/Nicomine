@@ -51,12 +51,12 @@ public class Inventory : MonoBehaviour
     {
         if (AntidoteTMP != null)
         {
-            AntidoteTMP.GetComponent<TMP_Text>().text = inventory[Items.ANTIDOTE].ToString();
+            AntidoteTMP.text = inventory[Items.ANTIDOTE].ToString();
         }
 
         if (CorkTMP != null)
         {
-            CorkTMP.GetComponent<TMP_Text>().text = inventory[Items.CORK].ToString();
+            CorkTMP.text = inventory[Items.CORK].ToString();
         }
     }
 }

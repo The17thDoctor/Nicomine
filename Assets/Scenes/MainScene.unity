@@ -966,8 +966,8 @@ Transform:
   m_GameObject: {fileID: 233986012}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.492, y: -7.8831, z: 0}
-  m_LocalScale: {x: 0.49467093, y: 10.5103, z: 1}
+  m_LocalPosition: {x: 8.492, y: -14.3079, z: 0}
+  m_LocalScale: {x: 0.49467093, y: 18.205309, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3263,8 +3263,9 @@ MonoBehaviour:
   sainPeopleText: {fileID: 194649533}
   sickPeopleText: {fileID: 558785891}
   deadPeopleText: {fileID: 73055242}
-  startSickPeople: 100
-  startHealthyPeople: 0
+  scoreText: {fileID: 1023765746}
+  startSainPeople: 100
+  startSickPeople: 0
   startDeadPeople: 0
   geyserScript: {fileID: 1714379503}
   timePeriod: 10
@@ -3297,7 +3298,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   geysers: {fileID: 1714379503}
   gameManager: {fileID: 1648228676}
-  time: 0
+  Timer: {fileID: 40554104}
+  baseGameTime: 300
+  gameTime: 300
 --- !u!1 &1705282786
 GameObject:
   m_ObjectHideFlags: 0
@@ -3487,6 +3490,7 @@ MonoBehaviour:
   closeGeysersText: {fileID: 206480164}
   openGeysersText: {fileID: 2096805799}
   plugGeysersText: {fileID: 419502272}
+  gameManager: {fileID: 1648228676}
 --- !u!114 &1763926276 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4635196547529754515, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}

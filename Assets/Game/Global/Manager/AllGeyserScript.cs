@@ -14,6 +14,7 @@ public class AllGeyserScript : MonoBehaviour
     public TMP_Text closeGeysersText;
     public TMP_Text openGeysersText;
     public TMP_Text plugGeysersText;
+    public GameManager gameManager;
     void Start()
     {
         SpriteRenderer[] allGeyserSprite = this.gameObject.GetComponentsInChildren<SpriteRenderer>();
@@ -99,7 +100,7 @@ public class AllGeyserScript : MonoBehaviour
     {
         for(int increment = 0; increment<allGeyser.Length;increment++)
         {
-            if (child==allGeyser[increment])
+            if (child==allGeyser[increment] && allGeyserState[increment]!=2)
             {
                 if(allGeyserState[increment] == 1){
                     setGeysersText(getCloseText(), getOpenText() - 1, getPlugText() + 1);
@@ -109,6 +110,7 @@ public class AllGeyserScript : MonoBehaviour
                 {
                     setGeysersText(getCloseText() - 1, getOpenText(), getPlugText() + 1);
                 }
+                gameManager.AddToScore(ScoreValue.GEYSER_PLUGGED);
                 allGeyserState[increment] = 2;
                 allGeyser[increment].GetComponent<SpriteRenderer>().sprite = spritePlug;
             }

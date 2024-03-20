@@ -3,9 +3,7 @@ using TMPro;
 public enum ScoreValue
 {
     VILLAGER_HEALED = 500,
-    GEYSER_PLUGGED = 1000,
-    ANTIDOTE_MINED = 100,
-    CORK_MINE = 200
+    GEYSER_PLUGGED = 1000
 }
 
 public class GameManager : MonoBehaviour
@@ -14,15 +12,21 @@ public class GameManager : MonoBehaviour
     public TMP_Text sainPeopleText;
     public TMP_Text sickPeopleText;
     public TMP_Text deadPeopleText;
-    public int startSickPeople = 100;
-    public int startHealthyPeople = 0;
+    public TMP_Text scoreText;
+    public int startSainPeople = 100;
+    public int startSickPeople = 0;
     public int startDeadPeople = 0;
     public AllGeyserScript geyserScript;
     public int timePeriod = 10;
 
     void Start()
     {
-        setStatePeople(80, 20, 0);
+        setStatePeople(startSainPeople, startSickPeople, startDeadPeople);
+    }
+
+    public void RefreshScoreText()
+    {
+        scoreText.text = $"Score : {_score.ToString()}";
     }
 
     public int GetScore()
@@ -58,15 +62,15 @@ public class GameManager : MonoBehaviour
     }
     int getSainPeople()
     {
-        return System.Int32.Parse(sainPeopleText.text);
+        return int.Parse(sainPeopleText.text);
     }
     int getSickPeople()
     {
-        return System.Int32.Parse(sickPeopleText.text);
+        return int.Parse(sickPeopleText.text);
     }
     int getDeadPeople()
     {
-        return System.Int32.Parse(deadPeopleText.text);
+        return int.Parse(deadPeopleText.text);
     }
 
     public void ChangePeopleState(int time)
