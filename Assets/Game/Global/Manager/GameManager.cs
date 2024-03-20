@@ -3,9 +3,7 @@ using TMPro;
 public enum ScoreValue
 {
     VILLAGER_HEALED = 500,
-    GEYSER_PLUGGED = 1000,
-    ANTIDOTE_MINED = 100,
-    CORK_MINE = 200
+    GEYSER_PLUGGED = 1000
 }
 
 public class GameManager : MonoBehaviour
@@ -64,15 +62,15 @@ public class GameManager : MonoBehaviour
     }
     int getSainPeople()
     {
-        return System.Int32.Parse(sainPeopleText.text);
+        return int.Parse(sainPeopleText.text);
     }
     int getSickPeople()
     {
-        return System.Int32.Parse(sickPeopleText.text);
+        return int.Parse(sickPeopleText.text);
     }
     int getDeadPeople()
     {
-        return System.Int32.Parse(deadPeopleText.text);
+        return int.Parse(deadPeopleText.text);
     }
 
     public void ChangePeopleState(int time)
