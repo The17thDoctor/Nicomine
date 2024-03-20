@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ItemBlock : Block
 {
-    public string Item;
+    public Items Item;
     public int ScoreValue;
 
     public override void OnBlockBreak()
@@ -12,5 +12,8 @@ public class ItemBlock : Block
         GameObject managerObject = GameObject.FindGameObjectWithTag("GameController");
         GameManager manager = managerObject.GetComponent<GameManager>();
         manager.AddToScore(ScoreValue);
+
+        Inventory inventory = FindObjectOfType<Inventory>();
+        inventory.AddItem(Item);
     }
 }
