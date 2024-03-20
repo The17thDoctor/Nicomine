@@ -11,20 +11,18 @@ public enum ScoreValue
 public class GameManager : MonoBehaviour
 {
     private int _score = 0;
-    public TMP_Text healthPeopleText;
+    public TMP_Text sainPeopleText;
     public TMP_Text sickPeopleText;
     public TMP_Text deadPeopleText;
-    private int sickPeople = 0;
-    private int healthyPeople = 0;
-    private int deadPeople = 0;
+    public int startSickPeople = 100;
+    public int startHealthyPeople = 0;
+    public int startDeadPeople = 0;
     public AllGeyserScript geyserScript;
     public int timePeriod = 10;
 
     void Start()
     {
-        setHealthyPeople(80);
-        setSickPeople(20);
-        setDeadPeople(0);
+        setStatePeople(80, 20, 0);
     }
 
     public int GetScore()
@@ -52,32 +50,23 @@ public class GameManager : MonoBehaviour
         _score = 0;
     }
 
-    void setHealthyPeople(int number)
+    void setStatePeople(int healthy, int sick, int dead)
     {
-        healthyPeople = number;
-        //healthPeopleText.text = healthyPeople.ToString();
+        sainPeopleText.text = healthy.ToString();
+        sickPeopleText.text = sick.ToString();
+        deadPeopleText.text = dead.ToString();
     }
-    void setSickPeople(int number)
+    int getSainPeople()
     {
-        sickPeople = number;
-        //sickPeopleText.text = sickPeople.ToString();
-    }
-    void setDeadPeople(int number)
-    {
-        deadPeople = number;
-        //deadPeopleText.text = deadPeople.ToString();
-    }
-    int getHealthyPeople()
-    {
-        return healthyPeople;
+        return System.Int32.Parse(sainPeopleText.text);
     }
     int getSickPeople()
     {
-        return sickPeople;
+        return System.Int32.Parse(sickPeopleText.text);
     }
     int getDeadPeople()
     {
-        return deadPeople;
+        return System.Int32.Parse(deadPeopleText.text);
     }
 
     public void ChangePeopleState(int time)
@@ -85,7 +74,7 @@ public class GameManager : MonoBehaviour
         if (time % timePeriod == 0)
         {
             ChangeSickPeople(time);
-            if (time > 15)
+            if (time > 150)
             {
                 ChangeDeadPeople(time);
             }
@@ -102,15 +91,12 @@ public class GameManager : MonoBehaviour
             settingSickPeople = settingSickPeople / 10;
             newSickPeople++;
         }
-        if (getHealthyPeople() - newSickPeople < 0){
-            setSickPeople(getSickPeople() + getHealthyPeople());
-            setHealthyPeople(0);
+        if (getSainPeople() - newSickPeople < 0){
+            setStatePeople(0, getSickPeople() + getSainPeople() , getDeadPeople());
         }
         else {
-            setHealthyPeople(getHealthyPeople() - newSickPeople);
-            setSickPeople(getSickPeople() + newSickPeople);
+            setStatePeople(getSainPeople() - newSickPeople, getSickPeople() + newSickPeople, getDeadPeople());
         }
-        //Debug.Log(getHealthyPeople());
     }
     void ChangeDeadPeople(int time)
     {
@@ -125,15 +111,11 @@ public class GameManager : MonoBehaviour
         }
         if (getSickPeople() - newDeadPeople < 0)
         {
-            setDeadPeople(getDeadPeople() + getSickPeople());
-            setSickPeople(0);
+            setStatePeople(getSainPeople(), 0, getDeadPeople() + getSickPeople());
         }
         else
         {
-            setSickPeople(getSickPeople() - newDeadPeople);
-            setDeadPeople(getDeadPeople() + newDeadPeople);
+            setStatePeople(getSainPeople(), getSickPeople() - newDeadPeople, getDeadPeople() + newDeadPeople);
         }
-        //Debug.Log(getSickPeople());
-        //Debug.Log(getDeadPeople());
     }
 }
