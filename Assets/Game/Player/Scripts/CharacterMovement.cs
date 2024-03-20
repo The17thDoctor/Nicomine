@@ -36,8 +36,8 @@ public class CharacterMovement : MonoBehaviour
     {
         if (leanJoystick != null)
         {
-            float joyX = leanJoystick.ScaledValue.x;
-            float joyY = leanJoystick.ScaledValue.y;
+            float joyX = Mathf.Clamp(leanJoystick.ScaledValue.x + Input.GetAxis("Horizontal"), -1, 1);
+            float joyY = Mathf.Clamp(leanJoystick.ScaledValue.y + Input.GetAxis("Vertical"), -1, 1);
 
             // Le vecteur n'est pas normaliser pour que l'utilisateur puisse choisir la vitesse avec le joystick.
             movement = new Vector3(joyX, joyY, 0);
