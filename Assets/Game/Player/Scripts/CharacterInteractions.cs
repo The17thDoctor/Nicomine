@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -52,7 +52,7 @@ public class CharacterInteractions : MonoBehaviour
             }
 
             int targetX = Mathf.RoundToInt(posX);
-            int targetY = Mathf.FloorToInt(posY);
+            int targetY = Mathf.FloorToInt(posY + 0.5f); // +0.5f pour que ça soit en face de la tête du perso 😎
 
             switch (joystickFacingDirection)
             {

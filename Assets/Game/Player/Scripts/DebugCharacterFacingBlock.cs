@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,7 +29,7 @@ public class DebugCharacterFacingBlock : MonoBehaviour
             joystickFacingDirection = characterMovement.GetJoystickFacingDirection();
         }
         int targetX = Mathf.RoundToInt(posX);
-        int targetY = Mathf.FloorToInt(posY);
+        int targetY = Mathf.FloorToInt(posY+0.5f); // +0.5f pour que ça soit en face de la tête du perso 😎
 
         switch (joystickFacingDirection)
         {
@@ -51,7 +51,7 @@ public class DebugCharacterFacingBlock : MonoBehaviour
 
 
         if (Debug_CharacterFacingBlock != null)
-            Debug_CharacterFacingBlock.transform.position = new Vector3(targetX, targetY, -1);
+            Debug_CharacterFacingBlock.transform.position = new Vector3(targetX, targetY, -7);
 
         if (Debug_CharacterPos != null)
             Debug_CharacterPos.transform.position = new Vector3(posX, posY, -2);
