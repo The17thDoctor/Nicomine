@@ -135,8 +135,11 @@ MonoBehaviour:
   turnSpeed: 5
   deathAnimationSpeed: 2
   spriteCharacter: {fileID: 21300000, guid: 0d704808cffd12047bbfe7a0398e52a1, type: 3}
+  spriteCharacter2: {fileID: 21300000, guid: 56b32fbfcae3fa6499ca078fa390a9f2, type: 3}
   spriteMaskedCharacter: {fileID: 21300000, guid: 0722ed92ee45a5540a3af9eebae5efe7, type: 3}
+  spriteMaskedCharacter2: {fileID: 21300000, guid: f8cf6ae494063c44ab99698bc620100d, type: 3}
   isPlayerDead: 0
+  animationDelay: 0.31415
 --- !u!114 &5170649087251479059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AntidoteTMP: {fileID: 0}
   CorkTMP: {fileID: 0}
+  isPlayerMining: 0
 --- !u!50 &8771213331161214824
 Rigidbody2D:
   serializedVersion: 4

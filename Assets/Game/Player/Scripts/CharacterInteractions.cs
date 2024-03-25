@@ -10,6 +10,8 @@ public class CharacterInteractions : MonoBehaviour
 
     public MiningButton miningButton = null;
 
+    public bool isPlayerMining = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +20,15 @@ public class CharacterInteractions : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(miningButton != null && miningButton.isButtonPressed)
+        if(miningButton != null)
         {
-            onMiningButtonClicked();
-            miningButton.timePressed += Time.fixedDeltaTime;
+            isPlayerMining = miningButton.isButtonPressed;
+
+            if(isPlayerMining)
+            {
+                onMiningButtonClicked();
+                miningButton.timePressed += Time.fixedDeltaTime;
+            }
         }
     }
 
