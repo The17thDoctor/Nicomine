@@ -4356,11 +4356,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 862476166737498487, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -100
+      value: -125
       objectReference: {fileID: 0}
     - target: {fileID: 862476166737498487, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -100
+      value: -125
       objectReference: {fileID: 0}
     - target: {fileID: 862476166737498487, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4401,6 +4401,14 @@ PrefabInstance:
     - target: {fileID: 3793404548887372403, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159543337579564430, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635196547529754515, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
+      propertyPath: radius
+      value: 87.5
       objectReference: {fileID: 0}
     - target: {fileID: 7134255078019034258, guid: 64d62cb5f2c12bc4ab08ce9010649a4c, type: 3}
       propertyPath: m_Pivot.x
