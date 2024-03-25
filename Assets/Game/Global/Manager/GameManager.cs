@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     {
         int nbGeysers = geyserScript.getOpenGeysers();
         int nbMalades = getSickPeople()+ getDeadPeople(); ;
-        int settingSickPeople = (1 + nbGeysers) * time*10 * (nbMalades + 1) * 100;
+        int settingSickPeople = nbGeysers * time*10 * (nbMalades + 1) * 100;
         int newSickPeople = 0;
         while (settingSickPeople>=1)
         {
@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
     {
         int nbGeysers = geyserScript.getOpenGeysers();
         int nbDead = getSickPeople();
-        int settingDeadPeople = (1 + nbGeysers) * time*10 * (nbDead + 1) * 1000;
+        int settingDeadPeople = nbGeysers * time*10 * (nbDead + 1) * 1000;
         int newDeadPeople = 0;
         while (settingDeadPeople >= 1)
         {
