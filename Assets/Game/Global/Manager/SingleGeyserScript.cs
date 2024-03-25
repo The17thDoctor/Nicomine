@@ -7,6 +7,7 @@ public class SingleGeyserScript : MonoBehaviour
 {
     public GameObject player;
     public Button button;
+    public Inventory stockage;
     private AllGeyserScript allgeyserscript;
     private bool[] trigger;
     private int identity_child;
@@ -46,7 +47,7 @@ public class SingleGeyserScript : MonoBehaviour
 
     void OnClickButton()
     {
-        if (trigger[identity_child])
+        if (trigger[identity_child] && stockage.Corks!=0)
         {
             allgeyserscript.CloseGeyser(this.gameObject);
         }
