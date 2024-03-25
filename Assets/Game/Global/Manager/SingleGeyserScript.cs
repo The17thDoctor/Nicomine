@@ -49,6 +49,7 @@ public class SingleGeyserScript : MonoBehaviour
     {
         if (trigger[identity_child] && stockage.Corks!=0)
         {
+            stockage.Corks--;
             allgeyserscript.CloseGeyser(this.gameObject);
         }
     }
