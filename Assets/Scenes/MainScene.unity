@@ -2227,6 +2227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
+  stockage: {fileID: 1640559742}
 --- !u!61 &644661862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2692,6 +2693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
+  stockage: {fileID: 1640559742}
 --- !u!61 &992197812
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3320,6 +3322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSprite: {fileID: 834107593}
   gameManager: {fileID: 1648228676}
+  stockage: {fileID: 0}
 --- !u!1001 &1402667419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3447,6 +3450,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3817455460573795406, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
   m_PrefabInstance: {fileID: 834107592}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1640559742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5522757806336264757, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
+  m_PrefabInstance: {fileID: 834107592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640559741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47dc309093e34cd4f872b18352a8dba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1648228675
 GameObject:
   m_ObjectHideFlags: 0
@@ -4179,6 +4193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
+  stockage: {fileID: 1640559742}
 --- !u!61 &1873545311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4646,6 +4661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
+  stockage: {fileID: 1640559742}
 --- !u!61 &1913146177
 BoxCollider2D:
   m_ObjectHideFlags: 0
