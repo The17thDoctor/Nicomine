@@ -2227,7 +2227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
-  stockage: {fileID: 1640559742}
+  stockage: {fileID: 0}
 --- !u!61 &644661862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2546,10 +2546,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3817455460573795406, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1640559751}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
 --- !u!114 &834107593 stripped
 MonoBehaviour:
@@ -2700,7 +2697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
-  stockage: {fileID: 1640559742}
+  stockage: {fileID: 0}
 --- !u!61 &992197812
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3457,41 +3454,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3817455460573795406, guid: b4f135cbb93a0f2469aaf561c1f47a68, type: 3}
   m_PrefabInstance: {fileID: 834107592}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &1640559751
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640559741}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &1648228675
 GameObject:
   m_ObjectHideFlags: 0
@@ -4224,7 +4186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
-  stockage: {fileID: 1640559742}
+  stockage: {fileID: 0}
 --- !u!61 &1873545311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4692,7 +4654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
-  stockage: {fileID: 1640559742}
+  stockage: {fileID: 0}
 --- !u!61 &1913146177
 BoxCollider2D:
   m_ObjectHideFlags: 0
