@@ -2227,7 +2227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
-  stockage: {fileID: 1640559742}
+  stockage: {fileID: 0}
 --- !u!61 &644661862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2700,7 +2700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
-  stockage: {fileID: 1640559742}
+  stockage: {fileID: 0}
 --- !u!61 &992197812
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4224,7 +4224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
-  stockage: {fileID: 1640559742}
+  stockage: {fileID: 0}
 --- !u!61 &1873545311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4692,7 +4692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1640559741}
   button: {fileID: 1796965351}
-  stockage: {fileID: 1640559742}
+  stockage: {fileID: 0}
 --- !u!61 &1913146177
 BoxCollider2D:
   m_ObjectHideFlags: 0
