@@ -8,6 +8,8 @@ public class CharacterInteractions : MonoBehaviour
 
     private CharacterMovement characterMovement = null;
 
+    private CharacterLife characterLife = null;
+
     public MiningButton miningButton = null;
 
     public bool isPlayerMining = false;
@@ -16,6 +18,7 @@ public class CharacterInteractions : MonoBehaviour
     void Start()
     {
         characterMovement = GetComponent<CharacterMovement>();
+        characterLife = GetComponent<CharacterLife>();
     }
 
     void FixedUpdate()
@@ -76,7 +79,6 @@ public class CharacterInteractions : MonoBehaviour
                 return;
             }
 
-            // TODO: si le block est un piège casser instanement
 
             float health = block.GetComponent<Block>().Health;
             if(miningButton.timePressed > health)
@@ -84,6 +86,9 @@ public class CharacterInteractions : MonoBehaviour
                 //Debug.Log("x: " + targetX + "  y: " + targetY);
                 mapGenerator.MineBlock(targetX, targetY);
                 miningButton.timePressed = 0.0f;
+
+                int damageTaken = block.GetComponent<Block>().damageWhenBroken;
+                characterLife.RemoveLifePoints(damageTaken);
             }
         }
     }

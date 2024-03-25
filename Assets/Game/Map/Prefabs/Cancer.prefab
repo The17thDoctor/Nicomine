@@ -145,5 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Breakable: 1
   Health: 3
+  damageWhenBroken: 1
   BlockSprite: {fileID: 21300000, guid: 619fbae63079a85488d257f07019dbcc, type: 3}
   HiddenSprite: {fileID: 21300000, guid: c71dadd00411d5c4b9ada4b566e798f2, type: 3}

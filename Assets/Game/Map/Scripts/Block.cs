@@ -10,6 +10,8 @@ public class Block : MonoBehaviour
 
     public float Health = 3.0f;
 
+    public int damageWhenBroken = 0;
+
     public Sprite BlockSprite;
     public Sprite HiddenSprite;
 
