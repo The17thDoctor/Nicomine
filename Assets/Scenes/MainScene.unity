@@ -3161,7 +3161,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -4556,14 +4556,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Container: {fileID: 322439097}
-  Dirt: {fileID: 2487941329581129525, guid: 6dd189f4284ec2b4d9b5ffa08e8ddedd, type: 3}
-  Grass: {fileID: 2487941329581129525, guid: 3d38c0ba03443774d86600ec46609abe, type: 3}
-  Stone: {fileID: 2487941329581129525, guid: 7336b9e42f17e6f4ab9df1c7da1eb3a7, type: 3}
-  Bedrock: {fileID: 2487941329581129525, guid: c8878db66d27d2a4cb9270ed1fd66688, type: 3}
-  CorkOre: {fileID: 2487941329581129525, guid: 07c0e519b0584204f92264925c2367d5, type: 3}
-  AntidoteOre: {fileID: 2487941329581129525, guid: e2bf62056be05b548a482f229f9265d7, type: 3}
-  Trap: {fileID: 2487941329581129525, guid: 972d145025090eb4fb4dac1e8ada677f, type: 3}
-  Cancer: {fileID: 2487941329581129525, guid: 7361bdf80d7d2594082f9964e703e474, type: 3}
+  Dirt: {fileID: 6974348723340961232, guid: 0636466e38fddba44bea68445aa61c63, type: 3}
+  Grass: {fileID: 6974348723340961232, guid: e02da393880397344963bf9107ed5823, type: 3}
+  Stone: {fileID: 9152394960086737846, guid: 7336b9e42f17e6f4ab9df1c7da1eb3a7, type: 3}
+  Bedrock: {fileID: 6974348723340961232, guid: 8b3de42f87f8f144db762893b422580f, type: 3}
+  CorkOre: {fileID: 6251508602274185275, guid: 0b513bb788ccc74458a279493ca3bacd, type: 3}
+  AntidoteOre: {fileID: 8557204754929639328, guid: 499eaa8167f5bba4bbe1609564a10b30, type: 3}
+  Trap: {fileID: 6974348723340961232, guid: 13282ce0f83fe154ab044d6b031a0642, type: 3}
+  Cancer: {fileID: 6974348723340961232, guid: a3fe97414eba9e843bb89883f8612ae7, type: 3}
   MineEntryX: 58
   HorizontalSize: 100
   VerticalSize: 30
