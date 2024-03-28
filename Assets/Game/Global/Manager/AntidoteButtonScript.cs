@@ -3,11 +3,14 @@ using UnityEngine.UI;
 
 public class AntidoteButtonScript : MonoBehaviour
 {
-    public CharacterSpriteManager characterSprite;
-    public GameManager gameManager;
-    public Inventory stockage;
+    private CharacterSpriteManager characterSprite;
+    private GameManager gameManager;
+    private Inventory stockage;
     void Start()
     {
+        stockage = GameObject.FindObjectsOfType<Inventory>()[0];
+        gameManager = GameObject.FindObjectsOfType<GameManager>()[0];
+        characterSprite = GameObject.FindObjectsOfType<CharacterSpriteManager>()[0];
         Button button = this.gameObject.GetComponent<Button>();
         button.onClick.AddListener(HealChoice);
     }

@@ -5,35 +5,19 @@ using UnityEngine.UI;
 
 public class SingleGeyserScript : MonoBehaviour
 {
-    public GameObject player;
-    public Button button;
-    public Inventory stockage;
-    private AllGeyserScript allgeyserscript;
-    private bool[] trigger;
-    private int identity_child;
-    private int number_child;
+    private GameObject player;
+    private CorkButtonScript corkButtonScript;
     private void Start()
     {
-        button.onClick.AddListener(OnClickButton);
-        allgeyserscript = this.gameObject.GetComponentInParent<AllGeyserScript>();
-        SingleGeyserScript[] childs = allgeyserscript.GetComponentsInChildren<SingleGeyserScript>();
-        trigger = new bool[childs.Length];
-        for (int increment = 0; increment < childs.Length; increment++)
-        {
-            trigger[increment] = false;
-            if (this.gameObject == childs[increment].gameObject)
-            {
-                identity_child = increment;
-            }
-        }
-        number_child = childs.Length;
+        corkButtonScript = GameObject.FindObjectsOfType<CorkButtonScript>()[0];
+        player = GameObject.FindObjectsOfType<CharacterMovement>()[0].gameObject;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject==player)
         {
-            trigger[identity_child] = false;
+            corkButtonScript.setTrigger(this.gameObject,false);
         }
     }
 
@@ -41,16 +25,7 @@ public class SingleGeyserScript : MonoBehaviour
     {
         if (other.gameObject==player)
         {
-            trigger[identity_child] = true;
-        }
-    }
-
-    void OnClickButton()
-    {
-        if (trigger[identity_child] && stockage.Corks!=0)
-        {
-            stockage.Corks--;
-            allgeyserscript.CloseGeyser(this.gameObject);
+            corkButtonScript.setTrigger(this.gameObject,true);
         }
     }
 }
