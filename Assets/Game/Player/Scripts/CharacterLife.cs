@@ -6,13 +6,14 @@ using UnityEngine.UIElements;
 
 public class CharacterLife : MonoBehaviour
 {
-    public int lifePoints = 5;
-
+    public int MaxlifePoints = 5;
+    public int lifePoints;
     private CharacterSpriteManager characterSpriteManager = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        lifePoints = MaxlifePoints;
         characterSpriteManager = GetComponent<CharacterSpriteManager>();
     }
 
@@ -25,6 +26,11 @@ public class CharacterLife : MonoBehaviour
     public int GetLifePoints()
     {
         return lifePoints;
+    }
+
+    public int GetMaxLifePoints()
+    {
+        return MaxlifePoints;
     }
 
     public void SetLifePoints(int value)

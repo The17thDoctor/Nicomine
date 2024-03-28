@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AntidoteButtonScript : MonoBehaviour
 {
     private CharacterSpriteManager characterSprite;
     private GameManager gameManager;
     private Inventory stockage;
+    public GameObject Popup;
+    private int peopleHeal;
+    public TMP_Text VillagerHealCounter;
     void Start()
     {
         stockage = GameObject.FindObjectsOfType<Inventory>()[0];
@@ -16,11 +20,29 @@ public class AntidoteButtonScript : MonoBehaviour
     }
     private void HealChoice()
     {
-        if (characterSprite.getIsPlayerInVillage() && gameManager.getSickPeople()>0 && stockage.Antidotes != 0)
+        if (characterSprite.getIsPlayerInVillage() && gameManager.getSickPeople() > 0 && stockage.Antidotes != 0)
         {
-            stockage.Antidotes--;
-            gameManager.AddToScore(ScoreValue.VILLAGER_HEALED);
-            gameManager.setStatePeople(gameManager.getSainPeople() + 1, gameManager.getSickPeople() - 1, gameManager.getDeadPeople());
+            Popup.SetActive(true);
+            int nbSick = gameManager.getSickPeople();
+            if (nbSick >= stockage.Antidotes)
+            {
+                setPeopleHeal(stockage.Antidotes);
+            }
+            else
+            {
+                setPeopleHeal(nbSick);
+            }
         }
+    }
+
+    public void setPeopleHeal(int people)
+    {
+        VillagerHealCounter.text = people.ToString();
+        peopleHeal = people;
+    }
+
+    public int getPeopleHeal()
+    {
+        return peopleHeal;
     }
 }
