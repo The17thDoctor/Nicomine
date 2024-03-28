@@ -16,11 +16,12 @@ public class GameManager : MonoBehaviour
     public int startSainPeople = 100;
     public int startSickPeople = 0;
     public int startDeadPeople = 0;
-    public AllGeyserScript geyserScript;
+    private CorkButtonScript geyserScript;
     public int timePeriod = 10;
 
     void Start()
     {
+        geyserScript = GameObject.FindObjectsOfType<CorkButtonScript>()[0];
         setStatePeople(startSainPeople, startSickPeople, startDeadPeople);
     }
 

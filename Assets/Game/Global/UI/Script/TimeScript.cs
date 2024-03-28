@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class TimeScript : MonoBehaviour
 {
-    public AllGeyserScript geysers;
-    public GameManager gameManager;
+    private CorkButtonScript geysers;
+    private GameManager gameManager;
     public TMP_Text Timer;
     public int baseGameTime = 300;
-    public int gameTime = 0;
+    private int gameTime = 0;
     private float prevTime = 0;
 
     public void Start()
     {
+        geysers = GameObject.FindObjectsOfType<CorkButtonScript>()[0];
+        gameManager = GameObject.FindObjectsOfType<GameManager>()[0];
         gameTime = baseGameTime;
     }
     public void FixedUpdate()
