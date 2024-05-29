@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeScript : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TimeScript : MonoBehaviour
     public int baseGameTime = 300;
     private int gameTime = 0;
     private float prevTime = 0;
+    GameInformations gameInformations = GameInformations.GetGameInformations();
 
     public void Start()
     {
@@ -30,6 +32,15 @@ public class TimeScript : MonoBehaviour
         }
 
         prevTime = calculatedTime;
+
+        if(!gameManager.endScreenShown && gameTime <= 0)
+        {
+            gameInformations.didPlayerWin = false;
+            gameInformations.playerScore = gameManager.GetScore();
+            gameInformations.loseReason = "Le temps est écoulé.";
+            SceneManager.LoadSceneAsync("EndScreen", LoadSceneMode.Additive);
+            gameManager.endScreenShown = true;
+        }
     }
 
     private void setTimeText(int gameTime){

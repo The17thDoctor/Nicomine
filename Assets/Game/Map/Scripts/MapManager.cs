@@ -24,7 +24,7 @@ public class MapGenerator : MonoBehaviour
     public int HorizontalSize = 100;
     public int VerticalSize = 35;
 
-    public int CorkAmount = 20;
+    public int CorkAmount = 40;
     public int AntidoteAmount = 150;
     public int TrapAmount = 50;
     public int CancerAmount = 20;

@@ -4710,10 +4710,10 @@ MonoBehaviour:
   sickPeopleText: {fileID: 558785891}
   deadPeopleText: {fileID: 73055242}
   scoreText: {fileID: 1023765746}
-  startSainPeople: 100
+  startSainPeople: 30
   startSickPeople: 0
   startDeadPeople: 0
-  timePeriod: 10
+  timePeriod: 20
 --- !u!4 &1648228677
 Transform:
   m_ObjectHideFlags: 0
@@ -5903,11 +5903,11 @@ MonoBehaviour:
   MineEntryX: 58
   HorizontalSize: 100
   VerticalSize: 30
-  CorkAmount: 20
-  AntidoteAmount: 150
+  CorkAmount: 40
+  AntidoteAmount: 300
   TrapAmount: 50
   CancerAmount: 20
-  DebugBlocks: 0
+  DebugBlocks: 1
 --- !u!1 &1913146173
 GameObject:
   m_ObjectHideFlags: 0

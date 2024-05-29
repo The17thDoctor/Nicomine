@@ -56,7 +56,7 @@ public class CorkButtonScript : MonoBehaviour
         return System.Int32.Parse(openGeysersText.text);
     }
 
-    private int getPlugText()
+    public int getPlugText()
     {
         return System.Int32.Parse(plugGeysersText.text);
     }

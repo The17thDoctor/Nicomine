@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public enum ScoreValue
 {
     VILLAGER_HEALED = 500,
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     public int startDeadPeople = 0;
     private CorkButtonScript geyserScript;
     public int timePeriod = 10;
+    GameInformations gameInformations = GameInformations.GetGameInformations();
+    public bool endScreenShown = false;
 
     void Start()
     {
@@ -121,6 +124,29 @@ public class GameManager : MonoBehaviour
         else
         {
             setStatePeople(getSainPeople(), getSickPeople() - newDeadPeople, getDeadPeople() + newDeadPeople);
+        }
+    }
+
+    private void Update()
+    {
+        if(!endScreenShown)
+        {
+            if (getDeadPeople() == startSainPeople)
+            {
+                gameInformations.didPlayerWin = false;
+                gameInformations.playerScore = GetScore();
+                gameInformations.loseReason = "Tous les villageois sont morts.";
+                SceneManager.LoadSceneAsync("EndScreen", LoadSceneMode.Additive);
+                endScreenShown = true;
+            }
+            Debug.Log(geyserScript.getPlugText());
+            if (geyserScript.getPlugText() == 4 && getSainPeople() > 0 && getSickPeople() == 0)
+            {
+                gameInformations.didPlayerWin = true;
+                gameInformations.playerScore = GetScore();
+                SceneManager.LoadSceneAsync("EndScreen", LoadSceneMode.Additive);
+                endScreenShown = true;
+            }
         }
     }
 }
