@@ -4714,6 +4714,7 @@ MonoBehaviour:
   startSickPeople: 0
   startDeadPeople: 0
   timePeriod: 20
+  endScreenShown: 0
 --- !u!4 &1648228677
 Transform:
   m_ObjectHideFlags: 0
@@ -5907,7 +5908,7 @@ MonoBehaviour:
   AntidoteAmount: 300
   TrapAmount: 50
   CancerAmount: 20
-  DebugBlocks: 1
+  DebugBlocks: 0
 --- !u!1 &1913146173
 GameObject:
   m_ObjectHideFlags: 0
