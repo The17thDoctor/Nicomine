@@ -182,25 +182,26 @@ public class MapGenerator : MonoBehaviour
         if (blockObject == null) return;
 
         Block block = blockObject.GetComponent<Block>();
-
-        Tuple<int, int>[] adjacents = {
-            new(1, 0),
-            new(-1, 0),
-            new(0, 1),
-            new(0, -1)
-        };
         
-        // If block has been mined.
         if (block.Mine())
         {
+            Tuple<int, int>[] adjacents = {
+                new( 1,  0),
+                new(-1,  0),
+                new( 0,  1),
+                new( 0, -1)
+            };
+
             foreach (Tuple<int, int> adjacent in adjacents)
             {
                 GameObject adjacentObject = BlockList[x + adjacent.Item1, y + adjacent.Item2];
                 if (adjacentObject == null) continue;
+
                 adjacentObject.GetComponent<Block>().Reveal();
             }
         }
     }
+
     public GameObject GetBlock(int x, int y)
     {
         x -= (int)Container.transform.position.x - HorizontalSize / 2;

@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using static CharacterMovement;
 
 public class CharacterInteractions : MonoBehaviour
 {
@@ -21,75 +20,54 @@ public class CharacterInteractions : MonoBehaviour
         characterLife = GetComponent<CharacterLife>();
     }
 
-    void FixedUpdate()
+    public void Update()
     {
-        if(miningButton != null)
+        if (miningButton.isButtonPressed)
         {
-            isPlayerMining = miningButton.isButtonPressed;
-
-            if(isPlayerMining)
-            {
-                onMiningButtonClicked();
-                miningButton.timePressed += Time.fixedDeltaTime;
-            }
+            mineBlock();
         }
     }
 
-    public void onMiningButtonClicked()
+    public void mineBlock()
     {
         if(mapGenerator != null && characterMovement != null)
         {
-            //Debug.Log("aze");
-            float posX = transform.position.x;
-            float posY = transform.position.y;
-
-            CharacterMovement.JoystickFacingDirection joystickFacingDirection = CharacterMovement.JoystickFacingDirection.None;
-            bool isPlayerFacingLeft = false;
-            if (characterMovement != null)
-            {
-                isPlayerFacingLeft = characterMovement.IsPlayerFacingLeft();
-                joystickFacingDirection = characterMovement.GetJoystickFacingDirection();
-            }
-
-            int targetX = Mathf.RoundToInt(posX);
-            int targetY = Mathf.FloorToInt(posY + 0.5f); // +0.5f pour que ça soit en face de la tête du perso 😎
-
-            switch (joystickFacingDirection)
-            {
-                case CharacterMovement.JoystickFacingDirection.Up:
-                    //targetX = Mathf.RoundToInt(posX);
-                    targetY++;
-                    break;
-                case CharacterMovement.JoystickFacingDirection.Down:
-                    //targetX = Mathf.RoundToInt(posX);
-                    targetY--;
-                    break;
-                case CharacterMovement.JoystickFacingDirection.Left:
-                case CharacterMovement.JoystickFacingDirection.Right:
-                case CharacterMovement.JoystickFacingDirection.None:
-                    int targetDir = isPlayerFacingLeft ? -1 : 1;
-                    targetX += targetDir;
-                    break;
-            }
-
-            GameObject block = mapGenerator.GetBlock(targetX, targetY);
-            if (block == null)
-            {
-                miningButton.timePressed = 0.0f;
-                return;
-            }
-
-
-            float health = block.GetComponent<Block>().Health;
-            if(miningButton.timePressed > health)
-            {
-                //Debug.Log("x: " + targetX + "  y: " + targetY);
-                mapGenerator.MineBlock(targetX, targetY);
-                miningButton.timePressed = 0.0f;
-
-                int damageTaken = block.GetComponent<Block>().damageWhenBroken;
-                characterLife.RemoveLifePoints(damageTaken);
-            }
+            Vector2 coords = GetFacingBlock();
+            mapGenerator.MineBlock((int)coords.x, (int)coords.y);
         }
+    }
+
+    private Vector2 GetFacingBlock()
+    {
+        float posX = transform.position.x;
+        float posY = transform.position.y;
+        int targetX = Mathf.RoundToInt(posX);
+        int targetY = Mathf.FloorToInt(posY + 0.5f); // +0.5f pour que ça soit en face de la tête du perso 😎
+
+        JoystickFacingDirection joystickFacingDirection = JoystickFacingDirection.None;
+        bool isPlayerFacingLeft = false;
+        if (characterMovement != null)
+        {
+            isPlayerFacingLeft = characterMovement.IsPlayerFacingLeft();
+            joystickFacingDirection = characterMovement.GetJoystickFacingDirection();
+        }
+
+        switch (joystickFacingDirection)
+        {
+            case JoystickFacingDirection.Up:
+                targetY++;
+                break;
+            case JoystickFacingDirection.Down:
+                targetY--;
+                break;
+            case JoystickFacingDirection.Left:
+            case JoystickFacingDirection.Right:
+            case JoystickFacingDirection.None:
+                int targetDir = isPlayerFacingLeft ? -1 : 1;
+                targetX += targetDir;
+                break;
+        }
+
+        return new(targetX, targetY);
     }
 }

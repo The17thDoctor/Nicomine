@@ -104,7 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ecafb42655f0546a62720b7c5bbad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifePoints: 5
+  MaxlifePoints: 1000000
+  lifePoints: 1000000
 --- !u!114 &4686391891185632508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapGenerator: {fileID: 0}
   miningButton: {fileID: 0}
+  isPlayerMining: 0
 --- !u!114 &5522757806336264757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AntidoteTMP: {fileID: 0}
   CorkTMP: {fileID: 0}
-  isPlayerMining: 0
 --- !u!50 &8771213331161214824
 Rigidbody2D:
   serializedVersion: 4
